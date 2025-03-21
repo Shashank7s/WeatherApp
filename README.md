@@ -73,63 +73,99 @@ A **Weather Dashboard** allows users to enter a city name and view the current w
     <script src="script.js"></script>
 </body>
 </html>
+
+
+    
 ```
 
 ---
 
 ### **4️⃣ Style the Dashboard (`style.css`)**  
 ```css
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background: #3498db;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #3498db, #2c3e50);
     color: white;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container */
 .container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 50px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-input, button {
-    padding: 10px;
+/* Input and Button */
+input {
+    padding: 12px;
     margin: 10px;
     border: none;
     border-radius: 5px;
+    width: 70%;
+    font-size: 16px;
 }
 
 button {
-    background: #2ecc71;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #27ae60;
     color: white;
     cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
 }
 
+button:hover {
+    background: #2ecc71;
+    transform: scale(1.05);
+}
+
+/* Weather Icon */
 #weatherResult img {
-    width: 100px;
+    width: 120px;
 }
 
+/* Forecast Section */
 #forecast {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
+/* Forecast Cards */
 .forecast-card {
     background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
+    padding: 15px;
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
 }
+
+.forecast-card:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 ```
 
 ---
 
 ### **5️⃣ Fetch Weather Data (`script.js`)**  
 ```js
-const apiKey = "YOUR_OPENWEATHER_API_KEY";
+const apiKey = "b0435bde4ba28123b92d8544c2472b5a";
 
 function getWeather() {
     let city = document.getElementById("cityInput").value;
@@ -172,6 +208,7 @@ function getForecast(city) {
             }
         });
 }
+
 ```
 
 ---
